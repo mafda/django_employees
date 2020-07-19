@@ -40,21 +40,21 @@
 from django.http import JsonResponse
 from django.core import serializers
 from django.shortcuts import render
-from .forms import EmployeesForm
+from .forms import EmployeesForm, SearchForm
 from .models import Employees
 
 
-def index(request):
+def employeeList(request):
     new_employee_form = EmployeesForm()
     employees = Employees.objects.all()
     return render(
         request,
-        "employees_list.html",
+        "list.html",
         {"new_employee_form": new_employee_form, "employees": employees},
     )
 
 
-def postEmployees(request):
+def employeeNew(request):
     # request should be ajax and method should be POST.
     if request.is_ajax and request.method == "POST":
         # get the form data
@@ -72,3 +72,7 @@ def postEmployees(request):
 
     # some error ocurred
     return JsonResponse({"error": ""}, status=400)
+
+
+def employeeSearch(request):
+    return render(request, "search.html", {"form": SearchForm})

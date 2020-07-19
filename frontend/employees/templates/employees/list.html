@@ -1,0 +1,96 @@
+{% extends 'employees/base.html' %}
+
+{% block content %}
+<div id="employee">
+  <h1>New Employee</h1>
+
+  <div class="container">
+    <form id="employee-form">
+      {% csrf_token %}
+      {% for field in new_employee_form %}
+      <label class="labels">{{ field.label }}</label>
+      {{ field }}
+      {% endfor %}
+      <input type="submit" class="btn" value="New Employee" />
+      <form>
+  </div>
+
+  <!-- <div id="overlay">
+    <div id="list" class="employee_list">
+      <h2>Employee List</h2>
+      <ul id="employee-list">
+        {% for i in employees %}
+        <li>
+          <div class="employee_card">
+            <ul>
+              <p><span class="fa fa-user-circle" aria-hidden="true"></span></p>
+              <li>Document: {{i.document}} </li>
+              <li>
+                <h4>Name: {{i.name}} </h4>
+              </li>
+              <li>
+                <h4>Lastname: {{i.lastname}} </h4>
+              </li>
+              <li>
+                <h5>Salary: {{i.salary}}</h5>
+              </li>
+            </ul>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div> -->
+
+</div>
+
+{% endblock content %}
+
+{% block javascript %}
+
+<script>
+  /*
+      On submiting the form, send the POST ajax
+      request to server and after successfull submission
+      display the object.
+  */
+  $("#employee-form").submit(function (e) {
+    // preventing from page reload and default actions
+    e.preventDefault();
+    // serialize the data for sending the form data.
+    var serializedData = $(this).serialize();
+    // make POST ajax call
+    $.ajax({
+      type: 'POST',
+      url: "{% url 'employee_new' %}",
+      data: serializedData,
+      success: function (response) {
+        // on successfull creating object
+        // 1. clear the form.
+        $("#employee-form").trigger('reset');
+        // 2. focus to nickname input
+        $("#id_nick_name").focus();
+
+        // display the newly employee to table.
+        var instance = JSON.parse(response["instance"]);
+        var fields = instance[0]["fields"];
+        $("#employee-list").prepend(
+          `<li>
+              <div class="employee_card">
+                <ul>
+                  <p class="fa fa-user-circle" aria-hidden="true"></p>
+                  <li>name: ${fields["name"]}</li>
+                  <li>lastname: ${fields["lastname"]}</li>
+                </ul>
+              </div>
+            </li>`
+        )
+      },
+      error: function (xhr, status, error) {
+        alert(xhr.responseText);
+      }
+    })
+  })
+</script>
+
+{% endblock javascript %}
