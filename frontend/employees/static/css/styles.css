@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f6f8fa;
+  font-family: 'Roboto', sans-serif;
+}
+
+#employee {
+  width: 60%;
+  min-width: 400px;
+}
+
+h1 {
+  font-size: 45px;
+  color: #1e7ab9;
+  font-weight: 900;
+  text-align: center;
+  margin: 40px 0;
+}
+
+input,
+button {
+  font: 400 20px 'Roboto', sans-serif;
+}
+
+input {
+  width: 60%;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #e1e4e8;
+  color: #6a737d;
+  padding: 0 24px;
+  margin-right: 10px;
+}
+
+.btn_search {
+  width: 30%;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid #e1e4e8;
+  background-color: #94d400;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn_search:hover {
+  opacity: 0.8;
+}
+
+.employee_list{
+  margin-top:40px;
+  height: 100%;
+}
+
+.employee_list ul {
+  font-family: "Roboto Mono", monospace;
+  list-style: none;
+  font-size: 16px;
+  color: #2aabe1;
+  font-weight: 300;
+}
+
+.employee_list ul li {
+  margin: 10px 0;
+}
+
+.employee_card{
+  border-radius: 20px;
+  border: 1px solid #e1e4e8;
+  background-color: #fff;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.employee_card p{
+  font-size: 40px;
+  margin-top: 10px;
+  color: #666;
+}
