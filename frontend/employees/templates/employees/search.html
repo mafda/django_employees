@@ -6,8 +6,12 @@
   <h1>Employees List</h1>
   <div class="container">
     <form id="search-form">
-      {{ form }}
-      <button id="button" class="btn_search">Search</button>
+      {% csrf_token %}
+      {% for field in form %}
+      <label class="labels">{{ field.label }}</label>
+      {{ field }}
+      {% endfor %}
+      <input type="submit" class="btn" value="Search" />
     </form>
   </div>
 </div>

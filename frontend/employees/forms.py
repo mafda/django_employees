@@ -3,7 +3,7 @@ from .models import Employees
 
 
 class SearchForm(forms.Form):
-    search_text = forms.CharField(label="", max_length=100)
+    search_text = forms.CharField(label="Insert text", max_length=100)
 
 
 class EmployeesForm(forms.ModelForm):
