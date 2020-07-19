@@ -3,7 +3,7 @@
 {% block content %}
 
 <div id="employee">
-  <h1>Employees List</h1>
+  <h1>Employees Search</h1>
   <div class="container">
     <form id="search-form">
       {% csrf_token %}
@@ -16,4 +16,73 @@
   </div>
 </div>
 
+
+<div id="overlay">
+  <div id="list" class="employee_list">
+
+    <div id="wait">
+    </div>
+    <ul id="employee-list">
+    </ul>
+  </div>
+</div>
+
 {% endblock content %}
+
+{% block javascript %}
+<script>
+
+  $("#search-form").submit(function (e) {
+    e.preventDefault();
+
+    $("#employee-list").empty();
+    $('#wait').css('display', 'block');
+
+    const data = $(this).serialize();
+
+    // simulated delay (1000 ms)
+    setTimeout(() => {
+      $.ajax({
+        type: 'GET',
+        url: "{% url 'employee_get' %}",
+        data: data,
+        success: function (response) {
+          const data = JSON.parse(response.data);
+          for (let i = 0; i < data.length; ++i) {
+            $("#employee-list").prepend(
+              `
+              <li>
+                <div class="employee_card">
+                  <ul>
+                    <p><span class="fa fa-user-circle" aria-hidden="true"></span></p>
+                    <li>Document: ${data[i].fields["document"]} </li>
+                    <li>
+                      <h4>Name: ${data[i].fields["name"]} </h4>
+                    </li>
+                    <li>
+                      <h4>Lastname: ${data[i].fields["lastname"]} </h4>
+                    </li>
+                    <li>
+                      <h5>Salary: ${data[i].fields["salary"]} </h5>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            `
+            )
+          }
+        },
+        error: function (xhr, status, error) {
+          alert(xhr.responseText);
+        },
+        complete: function () {
+          $('#wait').css('display', 'none');
+        },
+      })
+    },
+      1000
+    )
+  });
+
+</script>
+{% endblock javascript %}

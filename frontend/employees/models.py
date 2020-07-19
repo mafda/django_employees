@@ -8,10 +8,6 @@ class Employees(models.Model):
     lastname = models.CharField(max_length=32)
     salary = models.FloatField()
 
-    def _str_(self):
-        return (
-            f"       id: {self.employee_id}\n"
-            f"full name: {self.name} {self.lastname}\n"
-            f" document: {self.document}\n"
-            f"   salary: {self.salary}\n"
-        )
+    def __str__(self):
+        return f"{self.name};{self.lastname};{self.document};{self.salary};"
+

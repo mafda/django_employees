@@ -1,42 +1,3 @@
-# from django.http import HttpResponse
-# from django.shortcuts import render, redirect
-
-
-# from employees.forms import SearchName
-# from .forms import NameForm
-
-# from django.views.generic import TemplateView
-
-# EMPLOYEES_LIST = [
-#     {"name": "camilo", "lastname": "ariza"},
-#     {"name": "mafda", "lastname": "apellido"},
-#     {"name": "ariza", "lastname": "apellido"},
-#     {"name": "rodriguez", "lastname": "apellido"},
-# ]
-
-
-# class employeesList(TemplateView):
-#     template_name = "employees_list.html"
-#     form = NameForm
-
-#     def __init__(self, **kwargs):
-#         super().__init__(**kwargs)
-#         self.all_employees = EMPLOYEES_LIST
-#         self.current_employees = EMPLOYEES_LIST
-
-#     def post(self, request):
-#         def search(string, employee):
-#             return string in employee.values()
-
-#         self.current_employees = filter(search, self.all_employees)
-#         return redirect("/")
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context["form"] = NameForm
-#         context["employees_list"] = self.current_employees
-#         return context
-
 from django.http import JsonResponse
 from django.core import serializers
 from django.shortcuts import render
@@ -76,3 +37,18 @@ def employeeNew(request):
 
 def employeeSearch(request):
     return render(request, "search.html", {"form": SearchForm})
+
+
+def employeeGet(request):
+    if request.is_ajax and request.method == "GET":
+        search_text = request.GET.get("search_text", None)
+        data = []
+        for employee in Employees.objects.all():
+            if search_text.lower() in str(employee).lower():
+                data.append(employee)
+
+        return JsonResponse(
+            {"data": serializers.serialize("json", data)}, status=200
+        )
+
+    return JsonResponse({}, status=400)
