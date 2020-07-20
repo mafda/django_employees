@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-19 22:45+0000\n"
+"POT-Creation-Date: 2020-07-20 01:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,16 +50,16 @@ msgstr "Salario"
 msgid "Employees"
 msgstr "Empleados"
 
-#: employees/templates/employees/base.html:37
+#: employees/templates/employees/base.html:41
 msgid "Employee"
 msgstr "Empleado"
 
-#: employees/templates/employees/base.html:45
+#: employees/templates/employees/base.html:49
 #: employees/templates/employees/search.html:15
 msgid "Search"
 msgstr "Buscar"
 
-#: employees/templates/employees/base.html:48
+#: employees/templates/employees/base.html:52
 msgid "New"
 msgstr "Nuevo"
 
@@ -79,14 +79,14 @@ msgstr "Lista de Empleados"
 msgid "Employees Search"
 msgstr "Buscar Empleados"
 
-#: project/settings.py:119
+#: project/settings.py:121
 msgid "English"
 msgstr "Inglés"
 
-#: project/settings.py:120
+#: project/settings.py:122
 msgid "Portuguese"
 msgstr "Portugués"
 
-#: project/settings.py:121
+#: project/settings.py:123
 msgid "Spanish"
 msgstr "Español"
