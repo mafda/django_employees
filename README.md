@@ -12,7 +12,7 @@
   * Here, it is possible to create new employees too.
   * The app will verify the document number to avoid data entry redundancy.
     * I.e., it is possible to have two employees with the same name but not two employees with the same document number.
-* It is possible to choose the interface idiom between Spanish, Portuguese, and English.
+* It is possible to choose the interface idiom between **Spanish, Portuguese, and English**.
   * The default language will depend on your location. 
 
 ## Technologies
