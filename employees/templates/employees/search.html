@@ -1,9 +1,10 @@
 {% extends 'employees/base.html' %}
+{% load i18n %}
 
 {% block content %}
 
 <div id="employee">
-  <h1>Employees Search</h1>
+  <h1>{% trans "Employees Search" %}</h1>
   <div class="container">
     <form id="search-form">
       {% csrf_token %}
@@ -11,7 +12,7 @@
       <label class="labels">{{ field.label }}</label>
       {{ field }}
       {% endfor %}
-      <input type="submit" class="btn" value="Search" />
+      <input type="submit" class="btn" value="{% trans 'Search' %}" />
     </form>
   </div>
 </div>
@@ -55,15 +56,15 @@
                 <div class="employee_card">
                   <ul>
                     <p><span class="fa fa-user-circle" aria-hidden="true"></span></p>
-                    <li>Document: ${data[i].fields["document"]} </li>
+                    <li>{% trans "Document" %}: ${data[i].fields["document"]} </li>
                     <li>
-                      <h4>Name: ${data[i].fields["name"]} </h4>
+                      <h4>{% trans "Name" %}: ${data[i].fields["name"]} </h4>
                     </li>
                     <li>
-                      <h4>Lastname: ${data[i].fields["lastname"]} </h4>
+                      <h4>{% trans "Lastname" %}: ${data[i].fields["lastname"]} </h4>
                     </li>
                     <li>
-                      <h5>Salary: ${data[i].fields["salary"]} </h5>
+                      <h5>{% trans "Salary" %}: ${data[i].fields["salary"]} </h5>
                     </li>
                   </ul>
                 </div>
