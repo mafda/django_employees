@@ -5,14 +5,16 @@
 <div id="employee">
   <h1>{% trans "New Employee" %}</h1>
 
-  <div class="container">
+  <div class="containerform">
     <form id="employee-form">
       {% csrf_token %}
       {% for field in new_employee_form %}
       <label class="labels">{{ field.label }}</label>
       {{ field }}
       {% endfor %}
-      <input type="submit" class="btn" value="{% trans 'Add' %}" />
+      <div class="containerbtn">
+        <input type="submit" class="btn" value="{% trans 'Add' %}" />
+      </div>
       <form>
   </div>
 
