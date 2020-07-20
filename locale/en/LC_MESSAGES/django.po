@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-20 01:58+0000\n"
+"POT-Creation-Date: 2020-07-20 12:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,42 +23,42 @@ msgstr "Insert text"
 
 #: employees/forms.py:15 employees/templates/employees/list.html:28
 #: employees/templates/employees/list.html:69
-#: employees/templates/employees/search.html:59
+#: employees/templates/employees/search.html:62
 msgid "Document"
 msgstr "Document"
 
 #: employees/forms.py:16 employees/templates/employees/list.html:30
 #: employees/templates/employees/list.html:71
-#: employees/templates/employees/search.html:61
+#: employees/templates/employees/search.html:64
 msgid "Name"
 msgstr "Name"
 
 #: employees/forms.py:17 employees/templates/employees/list.html:33
 #: employees/templates/employees/list.html:74
-#: employees/templates/employees/search.html:64
-msgid "Lastname"
-msgstr "Lastname"
+#: employees/templates/employees/search.html:67
+msgid "Last Name"
+msgstr "Last Name"
 
 #: employees/forms.py:18 employees/templates/employees/list.html:36
 #: employees/templates/employees/list.html:77
-#: employees/templates/employees/search.html:67
+#: employees/templates/employees/search.html:70
 msgid "Salary"
 msgstr "Salary"
 
-#: employees/templates/employees/base.html:11
+#: employees/templates/employees/base.html:12
 msgid "Employees"
 msgstr "Employees"
 
-#: employees/templates/employees/base.html:41
+#: employees/templates/employees/base.html:42
 msgid "Employee"
 msgstr "Employee"
 
-#: employees/templates/employees/base.html:49
-#: employees/templates/employees/search.html:15
+#: employees/templates/employees/base.html:50
+#: employees/templates/employees/search.html:17
 msgid "Search"
 msgstr "Search"
 
-#: employees/templates/employees/base.html:52
+#: employees/templates/employees/base.html:53
 msgid "New"
 msgstr "New"
 

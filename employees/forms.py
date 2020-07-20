@@ -14,6 +14,6 @@ class EmployeesForm(forms.ModelForm):
         labels = {
             "document": _("Document"),
             "name": _("Name"),
-            "lastname": _("Lastname"),
+            "lastname": _("Last Name"),
             "salary": _("Salary"),
         }

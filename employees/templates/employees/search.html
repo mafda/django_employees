@@ -12,7 +12,10 @@
       <label class="labels">{{ field.label }}</label>
       {{ field }}
       {% endfor %}
-      <input type="submit" class="btn" value="{% trans 'Search' %}" />
+      <div class="m">
+
+        <input type="submit" class="btn" value="{% trans 'Search' %}" />
+      </div>
     </form>
   </div>
 </div>
@@ -61,7 +64,7 @@
                       <h4>{% trans "Name" %}: ${data[i].fields["name"]} </h4>
                     </li>
                     <li>
-                      <h4>{% trans "Lastname" %}: ${data[i].fields["lastname"]} </h4>
+                      <h4>{% trans "Last Name" %}: ${data[i].fields["lastname"]} </h4>
                     </li>
                     <li>
                       <h5>{% trans "Salary" %}: ${data[i].fields["salary"]} </h5>
