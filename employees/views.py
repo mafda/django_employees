@@ -42,9 +42,10 @@ def employeeSearch(request):
 def employeeGet(request):
     if request.is_ajax and request.method == "GET":
         search_text = request.GET.get("search_text", None)
+        search_text = search_text.strip().lower()
         data = []
         for employee in Employees.objects.all():
-            if search_text.lower() in str(employee).lower():
+            if search_text in str(employee).lower():
                 data.append(employee)
 
         return JsonResponse(
